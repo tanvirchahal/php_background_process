@@ -1,6 +1,8 @@
 <?php
 session_start();
-$_SESSION['email']= "tnvr009@gamil.com";
+
+//Custom Variable Passed
+$_SESSION['email']= "youremail@gmail.com";
 $_SESSION['password'] = "23232";
 
 class BackgroundProcess {
@@ -20,6 +22,7 @@ class BackgroundProcess {
                 $email = $_SESSION['email'];
                 $password = $_SESSION['password'];
                 
+				//Sending Custom Variables into the command
                 $command = $exec ." '".addslashes($email)."' '".addslashes($password)."' > /dev/null 2>&1 &";
     		exec($command);
                 //echo $command;
@@ -57,7 +60,9 @@ class BackgroundProcess {
     }
 }
 
-    
+
+
+	//Calling the Background Process & Redirecting to successpage
     BackgroundProcess::fork('testScript.php');
-    //header('Location: testSuccess.php');
+    header('Location: Success.php');
 ?>
