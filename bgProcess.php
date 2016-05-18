@@ -64,5 +64,5 @@ class BackgroundProcess {
 
 	//Calling the Background Process & Redirecting to successpage
     BackgroundProcess::fork('main.php');
-    header('Location: Success.php');
+    header('Location: success.php');
 ?>
